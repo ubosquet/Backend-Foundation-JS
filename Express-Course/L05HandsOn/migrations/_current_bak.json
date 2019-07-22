@@ -1,0 +1,31 @@
+{
+    "tables": {
+        "category": {
+            "tableName": "category",
+            "schema": {
+                "category_id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "field": "category_id",
+                    "seqType": "Sequelize.INTEGER(3).UNSIGNED"
+                },
+                "name": {
+                    "allowNull": false,
+                    "field": "name",
+                    "seqType": "Sequelize.STRING(25)"
+                },
+                "last_update": {
+                    "allowNull": false,
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.Literal"
+                    },
+                    "field": "last_update",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}
