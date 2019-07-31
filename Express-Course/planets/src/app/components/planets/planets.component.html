@@ -1,0 +1,15 @@
+<div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  <hr/>
+  <div style="text-align:center">
+    <div>
+        <h2>Static Planet Data</h2>
+        <h3>{{staticPath}}</h3>
+        <app-planets
+          [dataPath]="staticPath">
+        </app-planets>
+    </div>
+  </div>
