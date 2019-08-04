@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="/users/profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link" id="pills-posts-tab" data-toggle="pill" href="/posts" role="tab" aria-controls="pills-posts" aria-selected="true">Post</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-admin-tab" data-toggle="pill" href="/users/admin" role="tab" aria-controls="pills-admin" aria-selected="true">Admin</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-logout-tab" data-toggle="pill" href="/users/logout" role="tab" aria-controls="pills-logout" aria-selected="false">Logout</a>
+  </li>
+</ul>
+<hr />
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to your profile</h1>
+    <p class="lead"> Hello {{user.FirstName}} {{user.LastName}}</p>
+    <p class="lead"> Email: {{user.Email}} Username : {{user.Username}}</p>
+
+  </div>
+</div>
+
+
+</form>
+<hr />
+
+<h3>Recents Posts</h3>
+
+{{#each user.posts}}
+<p class="text-success">
+    {{ PostTitle }} : {{PostBody}} 
+</p><form id =" deletePost" name="deletePost" method="DELETE" action="/posts/{{PostId}}">
+<button class="btn-primary">Delete</button> <a class="text-secondary" href='/posts/editPost/{{PostId}}'> Edit Post</a>
+{{/each}}

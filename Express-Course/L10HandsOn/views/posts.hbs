@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link " id="pills-profile-tab" data-toggle="pill" href="/users/profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link active" id="pills-posts-tab" data-toggle="pill" href="/posts" role="tab" aria-controls="pills-posts" aria-selected="true">Post</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-admin-tab" data-toggle="pill" href="/users/admin" role="tab" aria-controls="pills-admin" aria-selected="true">Admin</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-logout-tab" data-toggle="pill" href="/users/logout" role="tab" aria-controls="pills-logout" aria-selected="false">Logout</a>
+  </li>
+</ul>
+<hr />
+
+<h1>Posts</h1>
+<br>
+<h3>New Post</h3>
+<form id="makePost" name="makePost" method="POST" action="/posts/">
+  <div>
+    <label for="postTitle">Title: </label>
+    <input type="text" name="postTitle" required>
+  </div>
+  <div>
+    <label for="postBody">Body: </label>
+    <input type="text" name="postBody" required>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<hr />
+
+<h3>Recents Posts</h3>
+
+{{#each posts}}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h4 class="display-5"> {{PostTitle}} </h4>
+    <p class="lead">{{PostBody}}.</p>
+  </div>
+</div>
+<form id =" deletePost" name="deletePost" method="DELETE" action="/posts/{{PostId}}">
+<button>Delete</button> <a class="text-secondary" href='/posts/editPost/{{PostId}}'> Edit Post</a>
+{{/each}}
+    
+ 
